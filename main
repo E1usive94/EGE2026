@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ЕГЭ по информатике · 11 класс</title>
+<meta name="description" content="Тренировочные варианты ЕГЭ по информатике для 11 класса и таблица результатов.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --indigo:#4f46e5;
+  --indigo-2:#6366f1;
+  --green:#059669;
+  --green-2:#10b981;
+  --text:#0f172a;
+  --muted:#64748b;
+  --line:#e2e8f0;
+  --card:#ffffff;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(1100px 520px at 8% -10%, rgba(199,210,254,.65), transparent 60%),
+    radial-gradient(900px 480px at 105% 5%, rgba(165,243,252,.55), transparent 55%),
+    linear-gradient(180deg,#f8fafc 0%,#eef2ff 100%);
+  background-attachment:fixed;
+  min-height:100vh;
+  padding:36px 16px 72px;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+.wrap{max-width:840px;margin:0 auto}
+
+/* ---------- HERO ---------- */
+.hero{text-align:center;padding:12px 8px 4px}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--card);border:1px solid var(--line);
+  padding:7px 15px;border-radius:999px;
+  font-size:13px;font-weight:600;color:var(--indigo);
+  box-shadow:0 1px 2px rgba(15,23,42,.05);
+}
+.badge .dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--green-2);
+  box-shadow:0 0 0 3px rgba(16,185,129,.2);
+}
+.hero h1{
+  font-size:clamp(26px,4.6vw,40px);
+  font-weight:800;line-height:1.15;letter-spacing:-.02em;
+  margin:16px 0 12px;
+  background:linear-gradient(120deg,#1e1b4b,#4f46e5 55%,#0891b2);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero p.sub{color:var(--muted);font-size:clamp(14px,2vw,17px);max-width:580px;margin:0 auto;line-height:1.5}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:28px}
+
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 26px;border-radius:13px;
+  font-weight:600;font-size:16px;text-decoration:none;
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease, filter .18s ease;
+  cursor:pointer;border:0;font-family:inherit;
+}
+.btn:active{transform:translateY(0) scale(.99)}
+.btn-primary{
+  background:linear-gradient(135deg,var(--green),var(--green-2));
+  color:#fff;
+  box-shadow:0 10px 26px -10px rgba(5,150,105,.75);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 30px -10px rgba(5,150,105,.8)}
+.btn-ghost{
+  background:var(--card);color:var(--text);
+  border:1px solid var(--line);
+  box-shadow:0 1px 2px rgba(15,23,42,.05);
+}
+.btn-ghost:hover{transform:translateY(-2px);border-color:#c7d2fe;box-shadow:0 10px 22px -12px rgba(79,70,229,.5)}
+
+/* ---------- CATALOG ---------- */
+.catalog{margin-top:52px}
+.catalog-head{
+  display:flex;align-items:baseline;justify-content:space-between;
+  gap:12px;flex-wrap:wrap;margin-bottom:16px;padding:0 4px;
+}
+.catalog h2{
+  font-size:21px;font-weight:700;letter-spacing:-.01em;
+  display:flex;align-items:center;gap:11px;
+}
+.catalog h2::before{
+  content:'';width:4px;height:22px;border-radius:3px;
+  background:linear-gradient(180deg,#4f46e5,#0891b2);
+}
+.catalog .count{font-size:13px;color:var(--muted);font-weight:500}
+
+.task-list{display:flex;flex-direction:column;gap:10px}
+
+.task-row{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:12px 16px;
+  box-shadow:0 1px 2px rgba(15,23,42,.04);
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  animation:rise .45s ease both;
+}
+.task-row:hover{
+  transform:translateY(-2px);
+  border-color:#c7d2fe;
+  box-shadow:0 14px 30px -16px rgba(79,70,229,.5);
+}
+@keyframes rise{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.task-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  min-width:150px;
+  padding:11px 20px;border-radius:11px;
+  font-weight:600;font-size:15px;letter-spacing:.01em;
+  text-decoration:none;color:#fff;
+  background:linear-gradient(135deg,var(--indigo),var(--indigo-2));
+  box-shadow:0 6px 16px -8px rgba(79,70,229,.9);
+  transition:filter .18s ease, transform .18s ease;
+  flex:0 0 auto;
+}
+.task-btn:hover{filter:brightness(1.09);transform:translateY(-1px)}
+.task-btn svg{transition:transform .18s ease}
+.task-btn:hover svg{transform:translateX(3px)}
+
+.variant{
+  font-size:15px;color:var(--muted);font-weight:500;
+  font-variant-numeric:tabular-nums;white-space:nowrap;
+}
+.variant b{color:var(--text);font-weight:700}
+
+.task-btn:focus-visible,.btn:focus-visible{
+  outline:3px solid rgba(99,102,241,.5);outline-offset:2px;
+}
+
+.foot{
+  margin-top:56px;text-align:center;
+  font-size:13px;color:var(--muted);line-height:1.6;
+}
+
+@media (max-width:520px){
+  body{padding:24px 12px 56px}
+  .hero-actions{gap:10px}
+  .btn{padding:12px 18px;font-size:14.5px;flex:1 1 auto;justify-content:center}
+  .task-row{padding:10px 12px;gap:10px;border-radius:14px}
+  .task-btn{min-width:0;padding:10px 14px;font-size:14px}
+  .variant{font-size:13.5px}
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <!-- ================= HERO ================= -->
+  <header class="hero">
+    <span class="badge"><span class="dot"></span>11 класс · ЕГЭ по информатике</span>
+    <h1>Подготовка к ЕГЭ по информатике</h1>
+    <p class="sub">Тренировочные варианты по каждому заданию и отслеживание результатов в одном месте.</p>
+
+    <div class="hero-actions">
+      <!-- ⬇️⬇️⬇️ ВСТАВЬТЕ ССЫЛКУ на Google-таблицу с ТЕКУЩИМИ РЕЗУЛЬТАТАМИ ⬇️⬇️⬇️ -->
+      <a class="btn btn-primary"
+         href="https://docs.google.com/spreadsheets/d/ВСТАВЬТЕ_ССЫЛКУ_НА_ТАБЛИЦУ_РЕЗУЛЬТАТОВ/edit"
+         target="_blank" rel="noopener noreferrer">
+        📊 Текущие результаты
+      </a>
+      <!-- ================================================================ -->
+
+      <a class="btn btn-ghost"
+         href="https://docs.google.com/spreadsheets/d/1j9_7kM4j8826oKjNK3HiiNZNwjJgMTOgfidp3pBnXgU/edit?gid=335746202#gid=335746202"
+         target="_blank" rel="noopener noreferrer">
+        📈 Прогноз
+      </a>
+    </div>
+  </header>
+
+  <!-- ================= CATALOG ================= -->
+  <section class="catalog" aria-labelledby="catalog-title">
+    <div class="catalog-head">
+      <h2 id="catalog-title">Каталог заданий</h2>
+      <span class="count" id="count"></span>
+    </div>
+    <div class="task-list" id="task-list"></div>
+  </section>
+
+  <p class="foot">Ссылки открываются на сайте «Решу ЕГЭ» в новой вкладке.</p>
+</main>
+
+<script>
+  /* ⚠️ Для изменения списка заданий правьте ТОЛЬКО этот массив.
+     num — номер задания, id — id варианта на inf-ege.sdamgia.ru */
+  const TASKS = [
+    { num: 1,  id: '21143910' },
+    { num: 2,  id: '21143916' },
+    { num: 3,  id: '21143921' },
+    { num: 4,  id: '21143923' },
+    { num: 5,  id: '21143931' },
+    { num: 6,  id: '21143950' },
+    { num: 7,  id: '21143962' },
+    { num: 8,  id: '21143977' },
+    { num: 9,  id: '21143995' },
+    { num: 11, id: '21143996' },
+  ];
+
+  const arrow = `
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M5 12h14M13 6l6 6-6 6"/>
+    </svg>`;
+
+  document.getElementById('task-list').innerHTML = TASKS.map((t, i) => `
+    <div class="task-row" style="animation-delay:${i * 45}ms">
+      <a class="task-btn"
+         href="https://inf-ege.sdamgia.ru/test?id=${t.id}"
+         target="_blank" rel="noopener noreferrer">
+        Задание ${t.num} ${arrow}
+      </a>
+      <span class="variant">Вариант <b>№ ${t.id}</b></span>
+    </div>
+  `).join('');
+
+  document.getElementById('count').textContent = TASKS.length + ' вариантов';
+</script>
+</body>
+</html>
